@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EazyHome</title>
+	<link type="text/css" href="{% static 'buildings/css/styles.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" href="{% static 'buildings/images/main.ico' %}" type="image/x-icon"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<table class="table-page" border=0 cellpadding="0" cellspacing="0">
+<tr><td valign=top>
+
+
+{% block mainmenu %}
+		<div class="header">
+<div class="logo-container"><a href="{% url 'buildings' %}"><div class="logo"></div></a>
+<h1 class="u-text u-text-default u-block-control u-block-8c5f-22" data-block="337" data-block-type="Text">EazyHome</h1></div>
+
+
+
+			<ul id="mainmenu" class="mainmenu" data-block="339">
+				{% for m in menu %}
+				<li class="u-nav-item"><a style="padding: 10px 10px;" href="{% url m.url_name %}">{{m.title}}</a></li>
+{% endfor %}
+			</ul>
+		</div>
+{% endblock mainmenu %}
+
+
+<table class="table-content" border=0 cellpadding="0" cellspacing="0">
+<tr>
+<!-- Sidebar слева -->
+	<td valign="top" class="left-chapters">
+	<ul id="leftchapters">
+		<li class="selected">Меню </li>
+		<li><a href="{% url 'buildings' %}">Все дома</a></li>
+		<li><a href="#">Все объекты</a></li>
+		<li><a href="#">Все риэлторы</a></li>
+		<li><a href="#">Документы</a></li>
+	</ul>
+</td>
+<!-- Конец Sidebar'а -->
+<td valign="top" class="content">
+	<!-- Хлебные крошки -->
+	{% block breadcrumbs %}
+	{% endblock %}
+
+<!-- Блок контента -->
+	<div class="content-text">
+{% block content %}
+{% endblock %}
+	</div>
+<!-- Конец блока контента -->
+
+</td></tr></table>
+</td></tr>
+<!-- Footer -->
+<tr><td valign=top>
+	<div id="footer">
+		<p>&copy; о.</p>
+	</div>
+</td></tr></table>
+<!-- Конец footer'а и страницы -->
+</body>
+</html>
