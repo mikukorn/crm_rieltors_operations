@@ -17,14 +17,29 @@ class AddBuildingForm(forms.ModelForm):
         # }
 
 # class AddFlatsForm(forms.ModelForm):
-#
 #     def __init__(self, *args, **kwargs):
 #         super().__init__(*args, **kwargs)
 #         #self.fields['building'].empty_label = "Дом не выбран"
-#
 #     class Meta:
 #         model = Flat
 #         building = forms.ModelChoiceField(queryset=Building.objects.distinct('street'))
 #         fields = ['number', 'entrance', 'floor', 'area', 'live_area', 'room_count', 'price', 'type_object']
+
+class AddDealForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Deal
+        fields = ['id_status_deal', 'id_type_deal']
+
+class AddContractForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Contract
+        fields = ['contractnumber', 'sum', 'id_deal', 'description']
+
 
 
