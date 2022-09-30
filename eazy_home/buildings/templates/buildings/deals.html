@@ -1,0 +1,32 @@
+{% extends 'buildings/base.html' %}
+{% block content %}
+
+<h2>{{title}}</h2>
+
+	<table class="table table-hover">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">Номер сделки</th>
+      <th scope="col">Статус сделки</th>
+      <th scope="col">Тип сделки</th>
+	  <th scope="col">Дата создания</th>
+	  <th scope="col">Дата обновления</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in model %}
+
+    <tr>
+      <th scope="row">{{p.id_deal}}</th>
+      <td>{{p.id_status_deal}}</td>
+      <td>{{p.id_type_deal}}</td>
+	  <td>{{p.time_create|date:"d-m-Y H:i"}}</td>
+	  <td>{{p.time_update|date:"d-m-Y H:i"}}</td>
+
+		{% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}

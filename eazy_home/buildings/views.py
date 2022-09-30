@@ -44,6 +44,42 @@ def get_buildings(request):
     }
     return render(request, 'buildings/estate.html', context = context)
 
+def get_clients(request):
+    model = Client.objects.all()
+    context = {
+        'model': model,
+        'menu': menu,
+        'title': 'Все клиенты'
+    }
+    return render(request, 'buildings/clients.html', context = context)
+
+def get_employers(request):
+    model = Employeers.objects.all()
+    context = {
+        'model': model,
+        'menu': menu,
+        'title': 'Все сотрудники'
+    }
+    return render(request, 'buildings/employers.html', context = context)
+
+def get_deals(request):
+    model = Deal.objects.all()
+    context = {
+        'model': model,
+        'menu': menu,
+        'title': 'Все сделки'
+    }
+    return render(request, 'buildings/deals.html', context = context)
+
+def get_contracts(request):
+    model = Contract.objects.all()
+    context = {
+        'model': model,
+        'menu': menu,
+        'title': 'Все договора'
+    }
+    return render(request, 'buildings/documents.html', context = context)
+
 
 
 def login(request):

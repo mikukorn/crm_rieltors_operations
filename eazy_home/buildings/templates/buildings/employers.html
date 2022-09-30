@@ -1,0 +1,34 @@
+{% extends 'buildings/base.html' %}
+{% block content %}
+
+<h2>{{title}}</h2>
+
+	<table class="table table-hover">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">Уникальный идентификатор</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Адрес почты</th>
+      <th scope="col">Номер телефона</th>
+      <th scope="col">Роль</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in model %}
+
+    <tr>
+      <th scope="row">{{p.id_employeer}}</th>
+      <td>{{p.firstname}}</td>
+      <td>{{p.lastname}}</td>
+      <td>{{p.email}}</td>
+      <td>{{p.telephone}}</td>
+        <td>{{p.role}}</td>
+
+		{% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}

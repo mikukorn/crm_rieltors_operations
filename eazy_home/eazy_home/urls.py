@@ -6,8 +6,8 @@ from homepage.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('homepage.urls')),
-    path('buildings/', include('buildings.urls')),
+    path('home', include('homepage.urls')),
+    path('', include('buildings.urls')),
     # path('realtors/', include('realtors.urls')),
     # path('documents/', include('documents.urls')),
 ]

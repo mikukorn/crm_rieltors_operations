@@ -1,0 +1,36 @@
+{% extends 'buildings/base.html' %}
+{% block content %}
+
+<h2>{{title}}</h2>
+
+	<table class="table table-hover">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">Уникальный идентификатор</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Адрес почты</th>
+      <th scope="col">Номер телефона</th>
+	  <th scope="col">Дата создания</th>
+	  <th scope="col">Дата обновления</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in model %}
+
+    <tr>
+      <th scope="row">{{p.id_client}}</th>
+      <td>{{p.firstname}}</td>
+      <td>{{p.lastname}}</td>
+      <td>{{p.email}}</td>
+      <td>{{p.telephone}}</td>
+	  <td>{{p.time_create|date:"d-m-Y H:i"}}</td>
+	  <td>{{p.time_update|date:"d-m-Y H:i"}}</td>
+
+		{% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}
