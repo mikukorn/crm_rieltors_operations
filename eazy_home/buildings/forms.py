@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from phonenumber_field.formfields import PhoneNumberField
 
 from .models import *
 
@@ -49,6 +50,25 @@ class AddEstateForm(forms.ModelForm):
 class AddClientForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['firstname', 'lastname', 'email', 'telephone']
+        fields = ['firstname', 'lastname', 'email', 'phonenumber']
+        widgets = {
+            'firstname': forms.TextInput(attrs={'class':"col-auto", 'title': 'Имя', 'required': True}),
+            'lastname': forms.TextInput(attrs={'class':"col-auto", 'title':'Фамилия', 'required': True}),
+            'email': forms.EmailInput(attrs={'class':"col-auto", 'title':'Электронный адрес', 'required': True}),
+            'phonenumber': forms.TextInput(attrs={'class':"col-auto",'placeholder': ('+7(ХХХ)-ХХХ-ХХ-ХХ')}),
+        }
+
+# class AddContractForm(forms.ModelForm):
+#     class Meta:
+#         model = Deal
+#         fields = ['firstname', 'lastname', 'email', 'phonenumber']
+
+class AddDealForm(forms.ModelForm):
+    class Meta:
+        model = Deal
+        id_status_deal = forms.ChoiceField(choices=Deal.STATUS_TYPE)
+        id_type_deal = forms.ChoiceField(choices=Deal.DEAL_TYPE)
+
+        fields = ['id_status_deal', 'id_type_deal']
 
 

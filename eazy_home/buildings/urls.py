@@ -8,7 +8,8 @@ urlpatterns = [
     path('employers/', get_employers, name='employers'),
     path('deals/', get_deals, name='deals'),
     path('contracts/', get_contracts, name='contracts'),
-    #path('add_client/', add_client, name='add_client'),
+    path('add_client/', add_client, name='add_client'),
+    path('add_deal/', add_deal, name='add_deal'),
 
     # path('/buildings/<int:building_id/>', get_building)
 ]

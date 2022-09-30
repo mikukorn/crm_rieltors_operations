@@ -1,0 +1,33 @@
+{% extends 'buildings/base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<form action="{% url 'add_deal' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+
+     <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label class="form-label" for="{{ form.id_status_deal.id_for_label }}">Статус сделки</label>{{ form.id_status_deal }}
+    </div>
+
+     <div class="form-group col-md-6">
+        <label class="form-label" for="{{ form.id_type_deal.id_for_label }}">Тип сделки</label>{{ form.id_type_deal }}
+    </div>
+
+     </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

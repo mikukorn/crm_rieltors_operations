@@ -7,8 +7,8 @@ from .forms import *
 from .models import *
 
 menu = [
-    {'title': "Все дома", 'url_name': 'buildings'},
-    {'title': "Добавить объект", 'url_name': 'add_estate'}
+    {'title': "Профиль", 'url_name': 'buildings'},
+    {'title': "Выйти", 'url_name': 'buildings'},
 ]
 
 def add_estate(request):
@@ -30,10 +30,22 @@ def add_client(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Клиент успешно добавлен!')
-            return HttpResponseRedirect(reverse_lazy('add_estate'))
+            return HttpResponseRedirect(reverse_lazy('add_client'))
     else:
-        form = AddEstateForm()
-    return render(request, 'buildings/add_building.html', {'form': form, 'menu': menu, 'title': 'Добавление объекта'})
+        form = AddClientForm()
+    return render(request, 'buildings/adds/add_client.html', {'form': form, 'menu': menu, 'title': 'Добавление клиента'})
+
+def add_deal(request):
+    if request.method == 'POST':
+        form = AddDealForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Сделка успешно добавлена!')
+            return HttpResponseRedirect(reverse_lazy('add_deal'))
+    else:
+        form = AddDealForm()
+    return render(request, 'buildings/adds/add_deal.html', {'form': form, 'menu': menu, 'title': 'Добавление сделки'})
 
 def get_buildings(request):
     model = Estate.objects.all()

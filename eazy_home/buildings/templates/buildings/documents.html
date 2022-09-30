@@ -2,15 +2,14 @@
 {% block content %}
 
 <h2>{{title}}</h2>
-
+<button type="button" class="btn btn-outline-success" onclick="location.href={% url 'add_estate' %}">Добавить объект</button>
 	<table class="table table-hover">
   <thead class="table-info">
     <tr>
-      <th scope="col">Уникальный идентификатор</th>
-      <th scope="col">Имя</th>
-      <th scope="col">Фамилия</th>
-      <th scope="col">Адрес почты</th>
-      <th scope="col">Номер телефона</th>
+      <th scope="col">ID документа</th>
+      <th scope="col">Номер договора</th>
+      <th scope="col">Описание</th>
+      <th scope="col">Сумма</th>
 	  <th scope="col">Дата создания</th>
 	  <th scope="col">Дата обновления</th>
     </tr>
@@ -23,7 +22,6 @@
       <td>{{p.contractnumber}}</td>
       <td>{{p.description}}</td>
       <td>{{p.sum}}</td>
-      <td>{{p.id_deal}}</td>
 	  <td>{{p.time_create|date:"d-m-Y H:i"}}</td>
 	  <td>{{p.time_update|date:"d-m-Y H:i"}}</td>
 

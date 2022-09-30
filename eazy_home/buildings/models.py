@@ -1,4 +1,5 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 class Building(models.Model):
     PROMO = 'promo'
@@ -32,7 +33,7 @@ class Employeers(models.Model):
     firstname = models.CharField(max_length=255, verbose_name="Имя")
     lastname = models.CharField(max_length=255, verbose_name="Фамилия")
     email = models.CharField(max_length=255, verbose_name="Email")
-    telephone = models.CharField(max_length=255, verbose_name="Telephone")
+    phonenumber = PhoneNumberField(blank=True, verbose_name="Номер телефона")
     role = models.CharField(max_length=32, choices=TYPE, default=REALTOR, verbose_name="Роль")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     time_update = models.DateTimeField(auto_now_add=True, verbose_name="Дата обновления")
@@ -54,7 +55,6 @@ class Deal(models.Model):
         (CNCLD, "Отменена"),
         (ARCH, "Archived"),
     ]
-
     RENT = 'Rent'
     SALE = 'Sale'
     PURCHASE = 'Purchase'
@@ -85,7 +85,7 @@ class Client(models.Model):
     firstname = models.CharField(max_length=255, verbose_name="Имя")
     lastname = models.CharField(max_length=255, verbose_name="Фамилия")
     email = models.CharField(max_length=255, verbose_name="Email")
-    telephone = models.CharField(max_length=255, verbose_name="Telephone")
+    phonenumber = PhoneNumberField(blank=True, verbose_name="Номер телефона")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     time_update = models.DateTimeField(auto_now_add=True, verbose_name="Дата обновления")
 

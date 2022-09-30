@@ -11,7 +11,7 @@
 	<!-- Bootstrap core JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="buildings/js/scripts.js"></script>
+	<script src="{% static 'buildings/js/scripts.js' %}"></script>
 
 	<title>EazyHome</title>
 	<link type="text/css" href="{% static 'buildings/css/styles.css' %}" rel="stylesheet" />
@@ -28,7 +28,6 @@
 		<div class="header">
 <div class="logo-container"><a href="{% url 'homepage' %}"><div class="logo"></div></a>
 <h1 class="u-text u-text-default u-block-control u-block-8c5f-22" data-block="337" data-block-type="Text">EazyHome</h1></div>
-
 
 
 			<ul id="mainmenu" class="mainmenu" data-block="339">
@@ -51,7 +50,7 @@
 		<li><a href="{% url 'clients' %}">Все клиенты</a></li>
 		<li><a href="{% url 'employers' %}">Все риэлторы</a></li>
 		<li><a href="{% url 'deals' %}">Все сделки</a></li>
-		<li><a href="#">Документы</a></li>
+		<li><a href="{% url 'contracts' %}">Все контракты</a></li>
 	</ul>
 </td>
 <!-- Конец Sidebar'а -->
