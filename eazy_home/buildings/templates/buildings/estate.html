@@ -1,0 +1,34 @@
+{% extends 'buildings/base.html' %}
+{% block content %}
+
+<h2>{{title}}</h2>
+
+	<table class="table table-hover">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">ID объекта</th>
+      <th scope="col">Адрес</th>
+      <th scope="col">Признак актуальности</th>
+      <th scope="col">Тип объекта</th>
+	  <th scope="col">Дата создания</th>
+	  <th scope="col">Дата обновления</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in model %}
+
+    <tr>
+      <th scope="row">{{p.id_estate}}</th>
+      <td>{{p.address}}</td>
+      <td>{{p.active}}</td>
+      <td>{{p.type_object}}</td>
+	  <td>{{p.time_create|date:"d-m-Y H:i"}}</td>
+	  <td>{{p.time_update|date:"d-m-Y H:i"}}</td>
+
+		{% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}

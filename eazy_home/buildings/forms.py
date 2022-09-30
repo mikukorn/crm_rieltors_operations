@@ -41,5 +41,14 @@ class AddContractForm(forms.ModelForm):
         model = Contract
         fields = ['contractnumber', 'sum', 'id_deal', 'description']
 
+class AddEstateForm(forms.ModelForm):
+    class Meta:
+        model = Estate
+        fields = ['address', 'active', 'type_object']
+
+class AddClientForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ['firstname', 'lastname', 'email', 'telephone']
 
 

@@ -5,5 +5,5 @@ from .models import *
 class BuildingTable(tables.Table):
     class Meta:
         model = Building
-        template_name = "buildings/index.html"
+        template_name = "buildings/estate.html"
         fields = ('number', 'street', 'city', 'type_object', 'time_update')

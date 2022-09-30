@@ -90,18 +90,18 @@ class Client(models.Model):
     time_update = models.DateTimeField(auto_now_add=True, verbose_name="Дата обновления")
 
 class Estate(models.Model):
-    LIVING = 'living'
-    NONLIVING = 'non-living'
+    LIVING = 'Жилое'
+    NONLIVING = 'Не жилое'
     TYPE = [
         (LIVING, "Жилое"),
         (NONLIVING, "Не жилое"),
     ]
     id_estate = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='id_estate')
-    Address = models.BooleanField(verbose_name='Is active?')
+    address = models.CharField(max_length=255, verbose_name="Адрес")
+    active = models.BooleanField(verbose_name='Is active?', null=True)
     type_object = models.CharField(max_length=32, choices=TYPE, default=LIVING, verbose_name="Тип объекта")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     time_update = models.DateTimeField(auto_now_add=True, verbose_name="Дата обновления")
-
 
 class Estate_client(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='id')
