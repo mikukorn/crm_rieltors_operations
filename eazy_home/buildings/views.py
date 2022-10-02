@@ -47,6 +47,20 @@ def add_deal(request):
         form = AddDealForm()
     return render(request, 'buildings/adds/add_deal.html', {'form': form, 'menu': menu, 'title': 'Добавление сделки'})
 
+def add_contract(request):
+    if request.method == 'POST':
+        form = AddContractForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Контракт успешно добавлен!')
+            return HttpResponseRedirect(reverse_lazy('add_contract'))
+        else:
+            print(form)
+    else:
+        form = AddContractForm()
+    return render(request, 'buildings/adds/add_contract.html', {'form': form, 'menu': menu, 'title': 'Добавление договора'})
+
 def get_buildings(request):
     model = Estate.objects.all()
     context = {

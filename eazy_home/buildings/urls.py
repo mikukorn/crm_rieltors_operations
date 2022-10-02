@@ -10,6 +10,7 @@ urlpatterns = [
     path('contracts/', get_contracts, name='contracts'),
     path('add_client/', add_client, name='add_client'),
     path('add_deal/', add_deal, name='add_deal'),
+    path('add_contract/', add_contract, name='add_contract'),
 
     # path('/buildings/<int:building_id/>', get_building)
 ]

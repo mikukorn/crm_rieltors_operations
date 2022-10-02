@@ -71,4 +71,17 @@ class AddDealForm(forms.ModelForm):
 
         fields = ['id_status_deal', 'id_type_deal']
 
+class AddContractForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(AddContractForm, self).__init__(*args, **kwargs)
+        self.fields['id_deal'] = forms.ModelChoiceField(queryset=Deal.objects.all())
+
+    class Meta:
+        model = Contract
+        fields = ['contractnumber', 'description', 'sum', 'id_deal']
+        widgets = {
+            'contractnumber': forms.TextInput(attrs={'class':"col-auto", 'title': 'Номер договора', 'required': True}),
+            'description': forms.Textarea(attrs={'cols': 30, 'rows': 10,'class':"col-auto", 'title':'Описание'}),
+            'sum': forms.TextInput(attrs={'class': "col-auto", 'title': 'Сумма', 'required': True}),
+        }
 

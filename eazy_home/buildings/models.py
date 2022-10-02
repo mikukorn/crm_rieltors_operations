@@ -70,6 +70,9 @@ class Deal(models.Model):
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     time_update = models.DateTimeField(auto_now_add=True, verbose_name="Дата обновления")
 
+    def __str__(self):
+        return f"{self.id_status_deal, self.id_type_deal}"
+
 
 class Contract(models.Model):
     id_contract = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='id_contract')
@@ -79,6 +82,12 @@ class Contract(models.Model):
     id_deal = models.ForeignKey(Deal, on_delete=models.CASCADE)
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     time_update = models.DateTimeField(auto_now_add=True, verbose_name="Дата обновления")
+
+    def add(self):
+        self.save()
+
+    def __str__(self):
+        return self.contractnumber
 
 class Client(models.Model):
     id_client = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='id_client')
