@@ -6,9 +6,12 @@ from django.urls import reverse_lazy
 from .forms import *
 from .models import *
 
+from django.shortcuts import render
+import csv
+
 menu = [
     {'title': "Профиль", 'url_name': 'buildings'},
-    {'title': "Выйти", 'url_name': 'buildings'},
+    {'title': "Выйти", 'url_name': 'login'},
 ]
 
 def add_estate(request):
@@ -106,10 +109,24 @@ def get_contracts(request):
     }
     return render(request, 'buildings/documents.html', context = context)
 
+# def registration(CreateView):
+#     form_class = UserCreationForm
+#     template_name = 'buildings/registration_page.html'
+#     success_url = (reverse_lazy('homepage'))
+
+def import_csv_estate(request):
+    response = HttpResponse(content_type='text/csv',headers={'Content-Disposition': 'attachment; filename="newfile.csv"'},)
+    writer = csv.writer(response)
+    estates = Estate.objects.all()
+    writer.writerow(['ID', 'Адрес', 'Активное?', 'Тип объекта', 'Дата создания', 'Дата обновления'])
+
+    for estate in estates:
+        writer.writerow([estate.id_estate, estate.address, estate.active, estate.type_object, estate.time_create, estate.time_update])
+    return response
 
 
 def login(request):
-    return HttpResponse("Авторизация")
+    return render(request, 'buildings/registration_page.html')
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
