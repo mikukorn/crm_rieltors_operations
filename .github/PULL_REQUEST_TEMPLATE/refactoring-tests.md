@@ -11,7 +11,7 @@ assignees: ''
 Задача [jira/trello](https://idwell.atlassian.net/browse/) 
 
 ### Description
-На какой функционал были добавлены тесты?
+варв
 
 ### Checklist:
 - [ ] Поправлены кейсы в Conflunce
