@@ -7,6 +7,11 @@ Please delete options that are not relevant.
 - [ ] \(Optional) Open a followup issue
 - [ ] \(Optional) Open a followup issue
 
+
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
+
 ### Ticket
 Задача [jira/trello](https://idwell.atlassian.net/browse/) 
 
