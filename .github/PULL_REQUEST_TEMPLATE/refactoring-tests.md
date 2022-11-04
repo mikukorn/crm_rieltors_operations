@@ -1,12 +1,3 @@
----
-name: Adding new tests
-about: Template for adding new tests
-title: ''
-labels: New tests
-assignees: ''
-
----
-
 ### Ticket
 Задача [jira/trello](https://idwell.atlassian.net/browse/) 
 
