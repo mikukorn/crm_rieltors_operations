@@ -424,6 +424,16 @@ background-position: right center;
 background-size: auto 100%;
 }
 
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-check-input {
+    height: 20px;
+    width:  20px;
+}
+
 @media (min-width: 1025px) {
 .h-custom-2 {
 height: 100%;
