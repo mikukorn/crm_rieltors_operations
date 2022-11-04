@@ -1,39 +1,5 @@
-name: Adding new tests
-description: Template for adding new tests
-title: "[Tests]: "
-labels: ["tests"]
-assignees:
-  - mikukorn
-body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: taskid
-    attributes:
-      label: https://idwell.atlassian.net/browse/{taskid}
-      description: Задача в jira/trello
-    validations:
-      required: true
-  - type: textarea
-    id: description
-    attributes:
-      label: Что было добавлено?
-      value: "
-      - Добавлены тесты по функционал/страницу ...
-      "
-    validations:
-      required: true
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: added
-      description: Щелкни, если выполнено
-      options:
-        - label: Написаны кейсы в Conflunce
-          required: true
-        - label: Препрод тесты не сломаны
-          required: true
-        - label: [Покрытие](https://idwell.atlassian.net/wiki/spaces/ID/pages/2153709569) учтено
-          required: true
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Community Support
+    url: https://github.com/orgs/community/discussions
+    about: Please ask and answer questions here.
